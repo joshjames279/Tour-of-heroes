@@ -1,0 +1,20 @@
+<h2>My heroes</h2>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> <span class="badge2">{{hero.name}}</span>
+    </a>
+    <button pButton pRipple type="button" icon="pi pi-times"
+            class="p-button-rounded p-button-secondary p-button-outlined"
+            title="delete hero" (click)="delete(hero)" style="width:25px; height:25px;"></button>
+  </li>
+</ul>
+
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName/>
+  <button pButton pRipple type="button" class="p-button-rounded p-button-secondary"
+          (click)="add(heroName.value); heroName.value=''"
+          label="Add hero"></button>
+</div>
